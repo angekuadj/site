@@ -1,0 +1,1 @@
+<?php /**PATH /Users/angek/Downloads/vihoadmin-10/vihoadmin-10/viho_html_laravel/Viho-Laravel-8/theme/resources/views/permissions/index.blade.php ENDPATH**/ ?>
