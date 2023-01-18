@@ -6,7 +6,10 @@ use App\Models\Classe;
 use App\Models\Cour;
 use App\Models\Day;
 use App\Models\Time;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CalendrierController extends Controller
 {
@@ -17,6 +20,9 @@ class CalendrierController extends Controller
      */
     public function index()
     {
+        $user = User::find(Auth::user()->id);
+        $class = $user->classe;
+        dd($class);
         $classe = Classe::find(1);
         $cours = $classe->cours;
         $classe2 = Classe::find(2);
@@ -29,7 +35,10 @@ class CalendrierController extends Controller
         $Fclasse = Cour::where('classe_id',1)->get();
        // dd($Fclasse);
        $cl = Cour::all('classe_id');
-        return view('Calendrier', compact('time','day','cour','Fclasse','cl','cours','cours2','classe','classe2'));
+
+       $et = DB::table('cours')->where('user_id', Auth::user()->id)->get(); 
+
+        return view('Calendrier', compact('et','time','day','cour','Fclasse','cl','cours','cours2','classe','classe2'));
     }
 
 

@@ -59,9 +59,9 @@
 					</div>
 					<div class="form-group">
 						<label class="col-form-label">Etudiant</label>
-						<select class="js-example-basic-single col-sm-12 form-control" id="etudiant" name="etudiant_id" >
+						<select class="js-example-basic-single col-sm-12 form-control" id="etudiant" name="user_id" >
 							<?php $__currentLoopData = $etu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-							<option value=" <?php echo e($item->id); ?> "> <?php echo e($item->user->name); ?> </option>
+							<option value=" <?php echo e($item->id); ?> "> <?php echo e($item->name); ?> </option>
 							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 						</select>
 					</div>

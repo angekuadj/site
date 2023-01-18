@@ -49,7 +49,14 @@ class UserController extends Controller
             'name' => 'required',
             'email'=>'required',
             'password'=>'required',
-            'role_id'=>'required'
+            'classe_id' => 'nullable',
+            'filiere_id' => 'nullable',
+            'DN' => 'nullable',
+            'sexe' => 'nullable',
+            'contact' => 'nullable',
+            'contactP' => 'nullable',
+            'matricule'=>'nullable'
+
         ]);
         //dd($request);
             User::create($request->all());

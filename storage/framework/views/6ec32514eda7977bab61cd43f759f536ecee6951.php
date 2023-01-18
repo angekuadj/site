@@ -41,16 +41,7 @@
 								<input class="form-control" id="validationTooltip01" name="password"  type="password"  required="" />
 								<div class="valid-tooltip">Looks good!</div>
 							</div>
-							<div class="col-md-12 position-relative">
-								<label class="form-label" for="validationTooltip01">Role</label>
-										<select class="js-example-placeholder-multiple col-sm-12" name="role_id" >
-											<?php $__currentLoopData = $role; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-													
-												<option value=" <?php echo e($item->id); ?> "> <?php echo e($item->name); ?> </option>
-												<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-										</select>
-									
-							</div>
+							
 							
 							
 							<div class="col-12">

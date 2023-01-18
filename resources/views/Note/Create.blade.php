@@ -60,9 +60,9 @@
 					</div>
 					<div class="form-group">
 						<label class="col-form-label">Etudiant</label>
-						<select class="js-example-basic-single col-sm-12 form-control" id="etudiant" name="etudiant_id" >
+						<select class="js-example-basic-single col-sm-12 form-control" id="etudiant" name="user_id" >
 							@foreach ($etu as $item )
-							<option value=" {{$item->id}} "> {{$item->user->name}} </option>
+							<option value=" {{$item->id}} "> {{$item->name}} </option>
 							@endforeach
 						</select>
 					</div>

@@ -55,7 +55,7 @@
                                 <div class="align-self-center text-center"><i data-feather="message-circle"></i></div>
                                 <div class="media-body">
                                     <span class="m-0">Salle</span>
-                                    <h4 class="mb-0 counter"> {{$s}} </h4>
+                                    <h4 class="mb-0 counter"> {{$s ?? ''}} </h4>
                                     <i class="icon-bg" data-feather="message-circle"></i>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                 <div class="align-self-center text-center"><i data-feather="user-plus"></i></div>
                                 <div class="media-body">
                                     <span class="m-0">Professeur</span>
-                                    <h4 class="mb-0 counter"> {{$p}} </h4>
+                                    <h4 class="mb-0 counter"> {{$p ?? ''}} </h4>
                                     <i class="icon-bg" data-feather="user-plus"></i>
                                 </div>
                             </div>

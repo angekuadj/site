@@ -24,7 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'photo',
-        'role_id'
+        'sexe','classe_id','filiere_id','matricule','DN','contact','contactP',
     ];
 
     /**
@@ -61,5 +61,14 @@ class User extends Authenticatable
     public function filiere()
     {
         return $this->belongsTo(Filiere::class);
+    }
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
+    public function etu_Classes()
+    {
+        return $this->hasMany(etu_Classe::class);
     }
 }

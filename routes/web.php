@@ -7,7 +7,6 @@ use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\CourController;
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\Etu_ClasseController;
-use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
@@ -52,7 +51,7 @@ Route::get('/', function () {
 // Auth::routes(['register' => false]);
 Auth::routes();
 Route::view('welcome', 'welcome')->name('index');
-    Route::resource('/dashboard', DasboardController::class);
+    Route::resource('/dashboard', DasboardController::class)->middleware(['auth']);
 
 // Route::get('getEtudiant/{id}', function ($id) {
 //     $etudiant = App\Models\Etudiant::where('classe_id',$id)->get();
@@ -82,7 +81,6 @@ Route::resource('Classe', ClasseController::class)->middleware(['auth', 'role:Ad
 Route::resource('Salle', SalleController::class);
 Route::resource('Cour', CourController::class);
 Route::resource('Filiere', FiliereController::class);
-Route::resource('Etudiant', EtudiantController::class);
 Route::resource('Calendrier', CalendrierController::class);
 Route::resource('Note', NoteController::class);
 Route::resource('Aff_eleve', Etu_ClasseController::class);
@@ -96,6 +94,9 @@ Route::view('editprofile', 'user.edit')->name('editprofile');
 Route::view('default-layout', 'multiple.default-layout')->name('default-layout');
 Route::view('compact-layout', 'multiple.compact-layout')->name('compact-layout');
 Route::view('modern-layout', 'multiple.modern-layout')->name('modern-layout');
+Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('role.permissions.revoke');
+Route::post('/users/{user}/roles', [UserController::class, 'assignRole'])->name('users.roles');
+Route::post('/roles/{role}/permissions', [RoleController::class , 'givePermission'])->name('role.permissions');
 
 
-
+//require __DIR__.'/auth.php';

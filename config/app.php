@@ -141,6 +141,7 @@ return [
          * Laravel Framework Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
         \Chatify\ChatifyServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,

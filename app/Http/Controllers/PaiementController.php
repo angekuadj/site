@@ -55,7 +55,7 @@ class PaiementController extends Controller
         // Paiement::create($request->all());
         
         $type = Typepaiement::all();
-        return redirect('Evenement.reçu')->with('flash_message', 'Paiement effectué!');  
+        return redirect('Evenement.reçu',compact('type'))->with('flash_message', 'Paiement effectué!');  
     }
 
     /**

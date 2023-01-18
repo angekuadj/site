@@ -9,12 +9,12 @@ class Note extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'note1','etudiant_id','classe_id','note2','note3','note4','note5','note6','note7','note8','note9','note10','note11','note12','note13',
+        'examen','note1','user_id','classe_id','note2','note3','note4','note5','note6','note7','note8','note9','note10','note11','note12','note13',
     ];
    
-    public function etudiant()
+    public function user()
     {
-        return $this->belongsTo(Etudiant::class);
+        return $this->belongsTo(User::class);
     }
     public function classe()
     {

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classe;
-use App\Models\Etudiant;
 use App\Models\Matiere;
 use App\Models\Note;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class NoteController extends Controller
@@ -18,12 +19,16 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $note = Note::all();
+        
+        
+        $user = Auth()->user()->id;
+       
         $ma = Matiere::all();
         $classe = Classe::find(1);
         $etudiant = $classe->notes;
         $classe2 = Classe::find(2);
         $etudiant2 = $classe2->notes;
+        $note = Note::all();
         //dd($etudiant);
         $ma1 = Matiere::find(1);
         $ma2 = Matiere::find(2);
@@ -33,8 +38,11 @@ class NoteController extends Controller
         $ma6 = Matiere::find(6);
         $ma7 = Matiere::find(7);
         $ma8 = Matiere::find(8);
-        
-        return view('Note.index', compact('note','ma1','ma2','ma3','ma4','ma5','ma6','ma7','ma8','etudiant','etudiant2','ma'));
+        //$et = User::find(Auth()->user()->id);
+        $et = DB::table('notes')->where('user_id', Auth::user()->id)->get(); 
+       //$ert = Note::where('user_id', Auth::id())->get();
+       //dd($ert);
+        return view('Note.index', compact('et','user','ma1','ma2','ma3','ma4','ma5','ma6','ma7','ma8','etudiant','etudiant2','ma'));
     }
 
     /**
@@ -54,8 +62,9 @@ class NoteController extends Controller
         $ma6 = Matiere::find(6);
         $ma7 = Matiere::find(7);
         $ma8 = Matiere::find(8);
-        $etu = Etudiant::all();
-        return view('Note.create',compact('ma','cl','etu','ma1','ma2','ma3','ma4','ma5','ma6','ma7','ma8'));
+        $etu = User::all();
+        $et = User::find(Auth()->user()->id);
+        return view('Note.create',compact('ma','et','cl','etu','ma1','ma2','ma3','ma4','ma5','ma6','ma7','ma8'));
     }
 
     /**
@@ -91,7 +100,7 @@ class NoteController extends Controller
             'note12' => 'nullable',
             'note13' => 'nullable',
             'classe_id'=> 'required',
-            'etudiant_id'=>'required'
+            'user_id'=>'required'
             
         ]);
     

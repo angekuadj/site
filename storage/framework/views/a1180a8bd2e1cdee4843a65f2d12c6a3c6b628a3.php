@@ -30,7 +30,12 @@
 	                            <div class="mb-3 col-sm-12">
 	                                <label for="inputEmail4">Moyen de Paiement</label>
 									<label>Moyen de Paiement</label>
-										
+										<select class="form-control" name="typepaiement_id"  >
+											<?php $__currentLoopData = $type; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+													
+												<option value=" <?php echo e($item->id); ?> "> <?php echo e($item->nom); ?> </option>
+												<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+										</select>
 									</div>
 	                        </div>
 	                        <div class="row">

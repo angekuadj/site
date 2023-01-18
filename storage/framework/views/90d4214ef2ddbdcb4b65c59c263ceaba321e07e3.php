@@ -16,9 +16,10 @@
             <li class="breadcrumb-item">Cours</li>
             <li class="breadcrumb-item">Emploi Du Temps</li>
         <?php echo $__env->renderComponent(); ?>
-
+        <?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasRole', 'Admin')): ?>
 <div class="content">
-        
+    
+    
    
     <div class="row">
         <div class="col-lg-12">
@@ -226,6 +227,144 @@
         </div>
     </div>
 </div>
+
+<?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if(\Spatie\Permission\PermissionServiceProvider::bladeMethodWrapper('hasRole', 'User')): ?>
+<div class="content">
+    
+    
+   
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                </div>
+
+                <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                        </div>
+
+                        <?php echo e($classe->nom); ?>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <th width="125">Time</th>
+                            <?php $__currentLoopData = $day; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <th width="125"> <?php echo e($item->nom); ?> </th>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            
+                        </thead>
+                        <tbody>
+                           
+                            
+                            
+                                
+                            <?php $__currentLoopData = $cours; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                            <div class="d-flex justify-content-end mb-4">
+                                <a class="btn btn-primary" href="<?php echo e(URL::to('#')); ?>">Export to PDF</a>
+                            </div>
+                                <tr>
+                                    
+                                    <td>
+                                        	<?php echo e($item->Dd); ?>-<?php echo e($item->Df); ?>
+
+                                    </td>
+                                    <td>
+                                        <?php if($item->day_id == 1): ?>
+                                            <?php echo e($item->nom); ?>
+
+                                           <?php else: ?> 
+
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if($item->day_id == 2): ?>
+                                        <?php echo e($item->nom); ?>
+
+                                       <?php else: ?> 
+
+                                    <?php endif; ?>
+
+                                    </td>
+                                    <td>
+
+                                        <?php if($item->day_id == 3): ?>
+                                        <?php echo e($item->nom); ?>
+
+                                       <?php else: ?> 
+
+                                    <?php endif; ?>
+                                    </td>
+                                    <td>
+
+                                        <?php if($item->day_id == 4): ?>
+                                        <?php echo e($item->nom); ?>
+
+                                       <?php else: ?> 
+
+                                    <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if($item->day_id == 5): ?>
+                                        <?php echo e($item->nom); ?>
+
+                                       <?php else: ?> 
+
+                                    <?php endif; ?>
+
+                                    </td>
+                                    <td>
+                                        <?php if($item->day_id == 6): ?>
+                                        <?php echo e($item->nom); ?>
+
+                                       <?php else: ?> 
+
+                                    <?php endif; ?>
+
+                                    </td>
+                                </tr>
+
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                
+                               
+                               
+                                
+                                
+
+                        </tbody>
+                    </table>
+
+                   
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php endif; ?>
+
+
+
 
 <?php $__env->startPush('scripts'); ?>    
 <script src="<?php echo e(asset('assets/js/prism/prism.min.js')); ?>"></script>

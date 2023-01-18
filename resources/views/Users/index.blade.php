@@ -35,7 +35,6 @@
 								<tr>
 									<th scope="col">ID</th>
 									<th scope="col">Nom</th>
-                                    <th scope="col">Role</th>
 									<th scope="col">Action</th>
 								</tr>
 							</thead>
@@ -46,9 +45,7 @@
 								<tr>
 									<th scope="row"> {{$item->id}} </th>
 									<td>{{$item->name}}</td>
-                                    <td>
-										{{$item->role->name ?? ''}}
-									</td>
+                                   
 									<td><a class="btn btn-pill btn-primary btn-air-primary" href="{{ url('/user/' . $item->id . '/edit') }}" ><i data-feather="edit-2"></i>Modifier</a></td>
 								
 								</tr>

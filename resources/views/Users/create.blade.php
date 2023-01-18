@@ -49,7 +49,7 @@
 								<input class="form-control" id="validationTooltip01" name="password"  type="password"  required="" />
 								<div class="valid-tooltip">Looks good!</div>
 							</div>
-							<div class="col-md-12 position-relative">
+							{{-- <div class="col-md-12 position-relative">
 								<label class="form-label" for="validationTooltip01">Role</label>
 										<select class="js-example-placeholder-multiple col-sm-12" name="role_id" >
 											@foreach ($role as $item )
@@ -58,7 +58,7 @@
 												@endforeach
 										</select>
 									
-							</div>
+							</div> --}}
 							
 							
 							<div class="col-12">

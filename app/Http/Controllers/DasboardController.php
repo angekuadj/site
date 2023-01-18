@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classe;
-use App\Models\Etudiant;
 use App\Models\Prof;
 use App\Models\Salle;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +21,7 @@ class DasboardController extends Controller
         
         $countC= Classe::all();
         $c = $countC->count();
-        $et = Etudiant::all();
+        $et = User::all();
         $e =$et->count();
         $sa = Salle::all();
         $s =$sa->count();

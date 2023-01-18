@@ -16,7 +16,7 @@ class CreateClasseEtudiantTable extends Migration
         Schema::create('classe_etudiant', function (Blueprint $table) {
             $table->id();
             $table->foreignId('classe_id');
-            $table->foreignId('etudiant_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

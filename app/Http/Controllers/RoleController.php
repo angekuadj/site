@@ -18,7 +18,8 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::whereNotIn('name', ['admin'])->get();
-        return view('roles.index', compact('roles'));
+        $role = Role::all();
+        return view('roles.index', compact('roles','role'));
     }
 
     /**
@@ -40,9 +41,10 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate(['name' => ['required', 'min:3']]);
+        $role = Role::all();
         Role::create($validated);
 
-        return redirect('roles.index')->with('message', 'Role Created successfully.');
+        return redirect('roles.index',compact('role'))->with('message', 'Role Created successfully.');
     }
 
     /**
@@ -51,10 +53,12 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit(Role $role )
     {
         $permissions = Permission::all();
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        $roles = Role::all();
+
+        return view('roles.edit', compact('roles', 'permissions')) ->with('roles', $role);
     }
 
     public function update(Request $request, Role $role)
@@ -62,7 +66,7 @@ class RoleController extends Controller
         $validated = $request->validate(['name' => ['required', 'min:3']]);
         $role->update($validated);
 
-        return redirect('admin.roles.index')->with('message', 'Role Updated successfully.');
+        return redirect('roles.index')->with('message', 'Role Updated successfully.');
     }
 
     public function destroy(Role $role)

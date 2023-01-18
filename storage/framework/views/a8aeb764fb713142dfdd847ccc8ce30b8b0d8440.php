@@ -9,9 +9,9 @@
 <?php $__env->startSection('content'); ?>
 	<?php $__env->startComponent('components.breadcrumb'); ?>
 		<?php $__env->slot('breadcrumb_title'); ?>
-			<h3>voir Permission</h3>
+			<h3>voir Role</h3>
 		<?php $__env->endSlot(); ?>
-		<li class="breadcrumb-item"  >Permissions</li>
+		<li class="breadcrumb-item"  >Role</li>
     <?php echo $__env->renderComponent(); ?>
 
 
@@ -25,11 +25,7 @@
 				<p><?php echo e($message); ?></p>
 			</div>
 		<?php endif; ?>
-        <div class="flex justify-end p-2">
-            <a href="<?php echo e(route('role.create')); ?>" class="px-4 py-2 bg-green-700 hover:bg-green-500 rounded-md">Create Role</a>
-        </div>
 						<div class="table-responsive">
-                           
 							<table class="table">
 								<thead>
 									<tr>
@@ -39,16 +35,14 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php $__currentLoopData = $permissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									<?php $__currentLoopData = $role; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 										
 									
 									<tr>
 										<th scope="row"> <?php echo e($item->id); ?> </th>
 										<td><?php echo e($item->name); ?></td>
-                                        <td><a class="btn btn-pill btn-primary btn-air-primary" href="<?php echo e(url('/Permission/' . $item->id . '/edit')); ?>" ><i data-feather="edit-2"></i>Modifier</a>
-                                            <a class="btn btn-pill btn-primary btn-air-primary" href="<?php echo e(url('/Permission/' . $item->id . '/edit')); ?>" ><i data-feather="edit-2"></i>Modifier</a>
-                                        </td>
-								
+                                        <td>
+                                            <a href="<?php echo e(route('role.edit', $item->id)); ?>" class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-black rounded-md">Edit</a>
 									</tr>
 									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 								</tbody>
@@ -77,4 +71,4 @@
 <?php $__env->stopPush(); ?>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/angek/Downloads/vihoadmin-10/vihoadmin-10/viho_html_laravel/Viho-Laravel-8/theme/resources/views/permissions/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/angek/Downloads/vihoadmin-10/vihoadmin-10/viho_html_laravel/Viho-Laravel-8/theme/resources/views/roles/index.blade.php ENDPATH**/ ?>

@@ -16,10 +16,6 @@ class Classe extends Model
         return $this->hasMany(User::class);
     }
 
-    public function etudiants()
-    {
-        return $this->hasMany(Etudiant::class);
-    }
     public function cours()
     {
         return $this->hasMany(Cour::class);

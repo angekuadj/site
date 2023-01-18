@@ -6,9 +6,9 @@ use App\Models\Classe;
 use App\Models\Cour;
 use App\Models\Day;
 use App\Models\Etu_Classe;
-use App\Models\Etudiant;
 use App\Models\Filiere;
 use App\Models\Prof;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Etu_ClasseController extends Controller
@@ -37,7 +37,7 @@ class Etu_ClasseController extends Controller
         $fi = Filiere::all();
         $prof = Prof::all();
         $se = Day::all();
-        $etu = Etudiant::all();
+        $etu = User::all();
         return view('Classe_etu.create', compact('cla','etu'));
     }
 

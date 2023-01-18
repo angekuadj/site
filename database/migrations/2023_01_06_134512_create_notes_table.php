@@ -29,7 +29,7 @@ class CreateNotesTable extends Migration
             $table->integer('note11')->nullable();
             $table->integer('note12')->nullable();
             $table->integer('note13')->nullable();
-            $table->foreignId('etudiant_id');
+            $table->foreignId('user_id');
             $table->foreignId('classe_id');
             $table->timestamps();
         });
